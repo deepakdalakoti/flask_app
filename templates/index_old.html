@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h1>Welcome to my site </h1>
+<div>
+	<h2> SignUp </h2>
+<form method="POST" action="{{ url_for('register') }}">
+	 {{form.csrf_token}}
+          <fieldset class="form-field">
+              {{ form.username.label }}
+              {{ form.username(size=20) }}
+	      {% if form.username.errors %}
+        <ul class="errors">
+          {% for error in form.username.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+          </fieldset>
+
+          <fieldset class="form-field">
+              {{ form.password.label }}
+              {{ form.password }}
+	      {% if form.password.errors %}
+        <ul class="errors">
+          {% for error in form.password.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+          </fieldset>
+
+          {{ form.register }}
+
+      </form>
+     </div>
+
+     <div>
+
+	<h2> Login </h2>
+	{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+<form method="POST" action="{{ url_for('login') }}">
+	 {{login_form.csrf_token}}
+          <fieldset class="form-field">
+              {{ login_form.username.label }}
+              {{ login_form.username(size=20) }}
+          </fieldset>
+
+          <fieldset class="form-field">
+              {{ login_form.password.label }}
+              {{ login_form.password }}
+          </fieldset>
+
+          {{ login_form.login }}
+
+      </form>
+     </div>
+
+{% endblock %}

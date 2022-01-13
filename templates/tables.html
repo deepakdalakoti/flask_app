@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block body %}
+
+<form action="{{ url_for('my_etfs') }}" method="GET">
+    <button type="submit"> My Etfs </button> </td>
+</form>	
+
+<!-- <table  data-pagination="true" data-search="true" data-toggle="table" data-detail-view="true" data-detail-filter="detailFilter"> -->
+<!-- <table id="table" data-toggle="table" data-detail-view="true" data-detail-filter="detailFilter"> -->
+<table id="table" data-toggle="table" data-detail-view="true" data-search="true" data-pagination="true" data-detail-formatter="detailFormatter">
+  <thead>
+    <tr style="text-align: center;">
+      <th data-sortable="true" data-field="id">Id</th>
+      <th data-sortable="true" data-field="name">Name</th>
+      <th >Fav</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for row in data %}
+  	  <tr>
+	    <td>{{row.id}}</td>
+
+	    <td>{{row.name | safe}}</td>
+
+	    {% if row.id in fav_list %}
+
+	    <td> In Fav </td>
+	    {% else %}
+            <td> <form action="{{ url_for('make_fav', etf_id=row.id) }}" method="POST">
+			    <!--   <input id="historicalId" name="historicalId" type="hidden" > -->
+		    <button type="submit"> Fav </button> </td>
+		</form>	
+
+           {% endif %}
+
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+
+
+</table>
+<script>
+  function detailFormatter(index, row) {
+	  const id = row.id;
+	  var item = [{{data[0].Market | tojson}}, {{data[0].ASX | tojson}}, {{data[0].iNAV | tojson}},{{data[0].Benchmark | tojson}}] ;
+	  //Do better than loop
+	  var header = " <table>  <thead>   <tr>   <th> Market  </th> <th>ASX Code </th> <th> iNAV </th> <th> BenchMark </th>   </tr> </thead> <tbody>";
+	  var footer = " </tbody> </table>";
+	  var body = "";
+	  for (let i=0; i < item.length; i++) {
+
+		  body = body + "<td>" + item[i] + " </td>" ;
+	  }
+	  body = "<tr> " + body + " </tr>";
+   return header+body+footer;
+  };
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,3833 @@
+<head>
+<link rel='stylesheet' href='https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css'>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+    $('#sampleTable').DataTable( {
+        initComplete: function () {
+            this.api().columns([1]).every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.header()) )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+} );
+</script>
+<h4>ETFs listed in ASX</h4> 
+<h4> Returns based on NAV. Last Updated: 02/12/2021 </h4>
+</head>
+<table border="1" class="dataframe" id="sampleTable">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Market</th>
+      <th>Exposure</th>
+      <th>ASX Code</th>
+      <th>Type</th>
+      <th>iNAV</th>
+      <th>Benchmark</th>
+      <th>Investment Style</th>
+      <th>Management Cost %</th>
+      <th>Outperf' Fee</th>
+      <th>Admission Date</th>
+      <th>YTD</th>
+      <th>1 Yr</th>
+      <th>3 Yr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.betashares.com.au/fund/australia-200-etf/" target="_blank">BetaShares Australia 200 ETF</a></td>
+      <td>A200</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YA20</td>
+      <td>Solactive Australia 200 Index</td>
+      <td>Track</td>
+      <td>0.0700</td>
+      <td>No</td>
+      <td>2018-08-05</td>
+      <td>14.75</td>
+      <td>16.10</td>
+      <td>12.64</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/251921/ishares-ishares-s-and-p-asx-20-etf" target="_blank" title="ilc">iShares S&amp;P/ASX 20 ETF</a></td>
+      <td>ILC</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX Accumulation 20 Index</td>
+      <td>Track</td>
+      <td>0.2400</td>
+      <td>No</td>
+      <td>2010-09-12</td>
+      <td>13.84</td>
+      <td>16.47</td>
+      <td>11.90</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.intelligentinvestor.com.au/invest-with-us/intelligent-investor-australian-equity-income-fund/inif" target="_blank" title="inif">Intelligent Investor Australian Equity Income Fund (Managed Fund)</a></td>
+      <td>INIF</td>
+      <td>MF</td>
+      <td>Yes, IRESS: INIFINAV.ETF</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.9700</td>
+      <td>No</td>
+      <td>2018-06-19</td>
+      <td>19.15</td>
+      <td>24.40</td>
+      <td>11.90</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Equity-Australia</td>
+      <td><a href="http://au.ishares.com/fund/fund-overview-IOZ-ASX.do" target="_blank">iShares Core S&amp;P/ASX 200 ETF</a></td>
+      <td>IOZ</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX 200 Index</td>
+      <td>Track</td>
+      <td>0.0900</td>
+      <td>No</td>
+      <td>2010-09-12</td>
+      <td>13.99</td>
+      <td>15.36</td>
+      <td>12.43</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.vaneck.com.au/funds/mvw/snapshot/" target="_blank">VanEck Australian Equal Weight ETF</a></td>
+      <td>MVW</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YMVW</td>
+      <td>Market Australia Equal Weight Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2014-06-03</td>
+      <td>13.12</td>
+      <td>13.80</td>
+      <td>12.33</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Equity-Australia</td>
+      <td><a href="http://www.betashares.com.au/" target="_blank">BetaShares FTSE RAFI Australia 200 ETF</a></td>
+      <td>QOZ</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YQOZ</td>
+      <td>FTSE RAFI Australia 200 Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2013-11-07</td>
+      <td>13.56</td>
+      <td>15.47</td>
+      <td>10.44</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-50-fund-SFY.html" target="_blank">SPDR S&amp;P/ASX 50 </a></td>
+      <td>SFY</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YSFY</td>
+      <td>S&P/ASX 50 Index</td>
+      <td>Track</td>
+      <td>0.2860</td>
+      <td>No</td>
+      <td>2001-08-27</td>
+      <td>13.79</td>
+      <td>14.48</td>
+      <td>11.56</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.ssga.com/au/en_gb/individual/etfs/funds/spdr-sp-asx-200-fund-stw" target="_blank">SPDR S&amp;P/ASX 200 </a></td>
+      <td>STW</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YSTW</td>
+      <td>Track S&P/ASX 200 Index</td>
+      <td>Track</td>
+      <td>0.1300</td>
+      <td>No</td>
+      <td>2001-08-27</td>
+      <td>14.12</td>
+      <td>15.49</td>
+      <td>12.50</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8205/Overview" target="_blank">Vanguard Australian Shares Index ETF</a></td>
+      <td>VAS</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX 300 Index</td>
+      <td>Track</td>
+      <td>0.1000</td>
+      <td>No</td>
+      <td>2009-08-05</td>
+      <td>14.61</td>
+      <td>16.12</td>
+      <td>12.90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Equity-Australia</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8209/Overview" target="_blank">Vanguard MSCI Australian Large Companies Index ETF</a></td>
+      <td>VLC</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>MSCI Australian Shares Large Cap Index</td>
+      <td>Track</td>
+      <td>0.2000</td>
+      <td>No</td>
+      <td>2011-05-26</td>
+      <td>13.59</td>
+      <td>16.35</td>
+      <td>12.31</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="http://www.betashares.com.au/products/name/australian-ex-20-portfolio-diversifier-etf/#each-overview" target="_blank">BetaShares Australian Ex-20 Portfolio Diversifier ETF</a></td>
+      <td>EX20</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YEX2</td>
+      <td>Nasdaq Australia Completion Cap Index</td>
+      <td>Track</td>
+      <td>0.2500</td>
+      <td>No</td>
+      <td>2016-07-10</td>
+      <td>13.85</td>
+      <td>14.89</td>
+      <td>12.93</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="https://einvest.com.au/impq/" target="_blank">eInvest Future Impact Small Caps Fund (Managed Fund)</a></td>
+      <td>IMPQ</td>
+      <td>MF</td>
+      <td>Yes, IRESS: IMPQINAV.ETF</td>
+      <td>S&P/ASX Small Ordinaries Accumulation Index</td>
+      <td>Outperform</td>
+      <td>0.9900</td>
+      <td>Yes</td>
+      <td>2019-05-23</td>
+      <td>14.12</td>
+      <td>19.98</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/251923/ishares-ishares-s-and-p-asx-small-ordinaries-etf" target="_blank" title="iso">iShares S&amp;P/ASX Small Ordinaries ETF</a></td>
+      <td>ISO</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX Small Ordinaries Index</td>
+      <td>Track</td>
+      <td>0.5500</td>
+      <td>No</td>
+      <td>2010-09-12</td>
+      <td>14.83</td>
+      <td>17.93</td>
+      <td>12.89</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="https://www.k2am.com.au/k2-funds" target="_blank">K2 Australian Small Cap Fund (Hedge Fund)</a></td>
+      <td>KSM</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>2.2700</td>
+      <td>Yes</td>
+      <td>2015-12-15</td>
+      <td>16.65</td>
+      <td>18.51</td>
+      <td>11.87</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="https://www.vaneck.com.au/funds/mve/snapshot/" target="_blank">VanEck S&amp;P/ASX MidCap 50 ETF</a></td>
+      <td>MVE</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YMVE</td>
+      <td>S&P/ASX Midcap 50 Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2013-10-16</td>
+      <td>15.89</td>
+      <td>19.74</td>
+      <td>17.09</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="http://www.vaneck.com.au/" target="_blank">VanEck Small Companies Masters ETF</a></td>
+      <td>MVS</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YMVS</td>
+      <td>Market Australia Small- Cap Dvidend Payers Index</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2015-05-28</td>
+      <td>13.45</td>
+      <td>15.72</td>
+      <td>9.90</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-small-ordinaries-fund-SSO.html" target="_blank">SPDR S&amp;P/ASX Small Ordinaries Fund</a></td>
+      <td>SSO</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YSSO</td>
+      <td>S&P/ASX Small Ordinaries Index</td>
+      <td>Track</td>
+      <td>0.5000</td>
+      <td>No</td>
+      <td>2011-04-13</td>
+      <td>14.82</td>
+      <td>17.98</td>
+      <td>13.28</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Equity-AustraliaSmall/MidCap</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8211/Overview" target="_blank">Vanguard MSCI Australian Small Companies Index ETF</a></td>
+      <td>VSO</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>MSCI Australian Shares Small Cap Index</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2011-05-26</td>
+      <td>17.27</td>
+      <td>20.70</td>
+      <td>16.48</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/sp-asx-australian-technology-etf/" target="_blank">BetaShares S&amp;P/ASX Australian Technology ETF</a></td>
+      <td>ATEC</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX All Technology Index</td>
+      <td>Track</td>
+      <td>0.4800</td>
+      <td>No</td>
+      <td>2020-05-03</td>
+      <td>8.84</td>
+      <td>16.53</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="https://www.vaneck.com.au/funds/mvb/snapshot/" target="_blank">VanEck Australian Bank ETF</a></td>
+      <td>MVB</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YMVB</td>
+      <td>Market Australia Banks Index</td>
+      <td>Track</td>
+      <td>0.2800</td>
+      <td>No</td>
+      <td>2013-10-16</td>
+      <td>22.18</td>
+      <td>22.02</td>
+      <td>8.09</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="http://www.vaneck.com.au/" target="_blank">VanEck Australian Resources ETF</a></td>
+      <td>MVR</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YMVR</td>
+      <td>Market Australia Energy & Resources Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2013-10-16</td>
+      <td>2.34</td>
+      <td>7.11</td>
+      <td>11.99</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-200-financials-ex-a-reit-fund-OZF.html" target="_blank">SPDR S&amp;P/ASX 200 Financials ex A-REITs Fund</a></td>
+      <td>OZF</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YOZF</td>
+      <td>S&P/ASX 200 Financial ex A-REIT Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2011-04-13</td>
+      <td>19.63</td>
+      <td>18.98</td>
+      <td>6.99</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-200-resources-fund-OZR.html" target="_blank">SPDR S&amp;P/ASX 200 Resource Fund </a></td>
+      <td>OZR</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YOZR</td>
+      <td>S&P/ASX 200 Resources Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2011-04-13</td>
+      <td>2.05</td>
+      <td>10.67</td>
+      <td>13.30</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/financials-sector-etf-betashares/" target="_blank">BetaShares S&amp;P/ASX 200 Financials Sector ETF </a></td>
+      <td>QFN</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YQFN</td>
+      <td>S&P/ASX 200 Financial ex A-REIT Index</td>
+      <td>Track</td>
+      <td>0.3400</td>
+      <td>No</td>
+      <td>2010-12-15</td>
+      <td>19.67</td>
+      <td>19.06</td>
+      <td>6.98</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Equity-AustralianSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/resources-sector-etf-betashares/" target="_blank">BetaShares S&amp;P/ASX 200 Resources Sector ETF </a></td>
+      <td>QRE</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YQRE</td>
+      <td>S&P/ASX 200 Resources Index</td>
+      <td>Track</td>
+      <td>0.3400</td>
+      <td>No</td>
+      <td>2010-12-15</td>
+      <td>3.55</td>
+      <td>12.61</td>
+      <td>13.92</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.airliefundsmanagement.com.au/airlie-australian-share-fund/" target="_blank">Airlie Australian Share Fund (Managed Fund)</a></td>
+      <td>AASF</td>
+      <td>MF</td>
+      <td>Yes, IRESS: AASF-AUINAV.NGIF</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.7800</td>
+      <td>No</td>
+      <td>2020-04-06</td>
+      <td>22.57</td>
+      <td>24.85</td>
+      <td>15.44</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/284664/ishares-edge-msci-australia-multi-factor-etf" target="_blank" title="aumf">iShares Edge MSCI Australia Multifactor ETF</a></td>
+      <td>AUMF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Australia IMI Diversified Multiple- Factor (AUD) Index</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2016-10-14</td>
+      <td>7.11</td>
+      <td>10.95</td>
+      <td>10.08</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://www.betashares.com.au/products/name/managed-risk-australian-share-fund/#each-overview" target="_blank">BetaShares Managed Risk Australian Share Fund (Managed Fund)</a></td>
+      <td>AUST</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2015-10-11</td>
+      <td>9.47</td>
+      <td>10.43</td>
+      <td>7.49</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/australian-equities-strong-bear-fund/" target="_blank">BetaShares Australian Strong Bear (Hedge Fund)</a></td>
+      <td>BBOZ</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Inverse Leveraged S&P/ASX 200 Index</td>
+      <td>Outperform</td>
+      <td>1.3800</td>
+      <td>No</td>
+      <td>2015-04-20</td>
+      <td>-27.81</td>
+      <td>-29.95</td>
+      <td>-34.77</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/australian-equities-bear-fund/" target="_blank">BetaShares Australian Equities Bear (Hedge Fund)</a></td>
+      <td>BEAR</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Inverse S&P/ASX 200 Index</td>
+      <td>Outperform</td>
+      <td>1.4800</td>
+      <td>No</td>
+      <td>2012-09-07</td>
+      <td>-13.43</td>
+      <td>-14.51</td>
+      <td>-14.43</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.vaneck.com.au/etf/equity/dvdy/snapshot/" target="_blank">VanEck Morningstar Australian Moat Income ETF</a></td>
+      <td>DVDY</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Morningstar Australia Dividend Yield Focus Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2020-10-09</td>
+      <td>14.36</td>
+      <td>15.11</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.ssga.com/au/en_gb/individual/etfs/funds/spdr-sp-asx-200-esg-fund-e200" target="_blank">SPDR S&amp;P/ASX 200 ESG ETF</a></td>
+      <td>E200</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX 200 Index</td>
+      <td>Track</td>
+      <td>0.1300</td>
+      <td>No</td>
+      <td>2020-05-08</td>
+      <td>13.64</td>
+      <td>13.59</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://einvest.com.au/einvest-income-generator/" target="_blank">eInvest Income Generator Fund (Managed Fund)</a></td>
+      <td>EIGA</td>
+      <td>MF</td>
+      <td>Yes, IRESS: EIGAINAV.ETF</td>
+      <td>S&P/ASX 300 Franking Credit Adjusted Daily TR Index</td>
+      <td>Outperform</td>
+      <td>0.8000</td>
+      <td>No</td>
+      <td>2018-07-05</td>
+      <td>9.42</td>
+      <td>10.88</td>
+      <td>7.34</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/betashares-legg-mason-equity-income-fund/" title="Follow link">BetaShares Martin Currie Equity Income Fund (Managed Fund)</a></td>
+      <td>EINC</td>
+      <td>MF</td>
+      <td>Yes, IRESS: EINCINAV.ETF</td>
+      <td>S&P/ASX 200 Index</td>
+      <td>Outperform</td>
+      <td>0.8500</td>
+      <td>No</td>
+      <td>2018-02-19</td>
+      <td>12.09</td>
+      <td>12.31</td>
+      <td>8.16</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/australian-sustainability-leaders-etf/" target="_blank">BetaShares Australian Sustainability Leaders ETF</a></td>
+      <td>FAIR</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YFAI</td>
+      <td>Nasdaq Future Australian Sustainability Leaders Index</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2017-11-29</td>
+      <td>15.62</td>
+      <td>13.32</td>
+      <td>13.77</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://betashares.com.au/products/name/geared-fund/" target="_blank">BetaShares Geared Australian Equity Fund (Hedge Fund)</a></td>
+      <td>GEAR</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>S&P/ASX 200 Index</td>
+      <td>Outperform</td>
+      <td>0.8000</td>
+      <td>No</td>
+      <td>2014-02-05</td>
+      <td>29.78</td>
+      <td>32.99</td>
+      <td>19.05</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.perpetual.com.au/funds/perpetual-ethical-sri-fund-asx-give" title="Follow link">Perpetual Ethical SRI Fund (Managed Fund) (ASX: GIVE)</a></td>
+      <td>GIVE</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>S&P/ASX 300 Accumulation Index</td>
+      <td>Outperform</td>
+      <td>0.6500</td>
+      <td>Yes</td>
+      <td>2021-11-29</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://www.vaneck.com.au/" target="_blank">VanEck MSCI Australian Sustainable Equity ETF</a></td>
+      <td>GRNV</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YGRN</td>
+      <td>MSCI Australia IMI Select SRI Screened Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2019-06-26</td>
+      <td>15.90</td>
+      <td>16.42</td>
+      <td>13.88</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://betashares.com.au/products/name/australian-dividend-harvester-fund/" target="_blank">BetaShares Australian Dividend Harvester Fund (Managed Fund)</a></td>
+      <td>HVST</td>
+      <td>MF</td>
+      <td>Yes, IRESS: HVST.AXW</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.9000</td>
+      <td>No</td>
+      <td>2014-03-11</td>
+      <td>6.43</td>
+      <td>6.94</td>
+      <td>5.79</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/318831/" title="iesg">iShares Core MSCI Australia ESG Leaders ETF</a></td>
+      <td>IESG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Australia IMI Custom ESG Leaders Index</td>
+      <td>Track</td>
+      <td>0.0900</td>
+      <td>No</td>
+      <td>2021-04-06</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://au.ishares.com/fund/fund-overview-IHD-ASX.do" target="_blank">iShares S&amp;P/ASX High Dividend Yield ETF</a></td>
+      <td>IHD</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P ASX Australia Dividend Opportunities Accumulation Index</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2010-09-12</td>
+      <td>8.45</td>
+      <td>13.96</td>
+      <td>10.06</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.investsmart.com.au/help-centre/topic/investsmart-australian-equity-income-fund-managed-fund-asx-inif/10" target="_blank" title="iigf">Intelligent Investor Australian Equity Income Fund (Managed Fund)</a></td>
+      <td>IIGF</td>
+      <td>MF</td>
+      <td>Yes, IRESS: IIGFINAV.ETF</td>
+      <td>S&P/ASX 200 Accumulation Index</td>
+      <td>Outperform</td>
+      <td>0.9700</td>
+      <td>No</td>
+      <td>2020-06-10</td>
+      <td>19.26</td>
+      <td>24.06</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.investsmart.com.au/invest-with-us/landing/ethical-share-fund-managed-fund-asx-ines/169" target="_blank">Intelligent Investor Ethical Share Fund (Managed Fund)</a></td>
+      <td>INES</td>
+      <td>MF</td>
+      <td>Yes, IRESS: INESINAV.ETF</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.9700</td>
+      <td>No</td>
+      <td>2019-12-06</td>
+      <td>21.96</td>
+      <td>24.80</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://monashinvestors.com/">Monash Absolute Active Trust (Hedge Fund)</a></td>
+      <td>MAAT</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>1.2813</td>
+      <td>Yes</td>
+      <td>2021-10-06</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/284666/ishares-edge-msci-australia-minimum-volatility-etf" target="_blank" title="mvol">iShares Edge MSCI Australia Minimum Volatility ETF</a></td>
+      <td>MVOL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Australia IMI Select Minimum Volatility (AUD) Index</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2016-10-14</td>
+      <td>14.34</td>
+      <td>15.08</td>
+      <td>9.70</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://russellinvestments.com/au/solutions/exchange-traded-funds/funds/RARIETF" target="_blank">Russell Australian Responsible Investment ETF</a></td>
+      <td>RARI</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YRAR</td>
+      <td>Russell Australia ESG High Dividend Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2015-08-04</td>
+      <td>15.66</td>
+      <td>16.94</td>
+      <td>10.24</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td>None</td>
+      <td>RDV</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YRDV</td>
+      <td>Russell Australia High Dividend Index</td>
+      <td>Track</td>
+      <td>0.3400</td>
+      <td>No</td>
+      <td>2010-05-14</td>
+      <td>12.67</td>
+      <td>12.91</td>
+      <td>7.85</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/product/self" target="_blank">SelfWealth SMSF Leaders ETF</a></td>
+      <td>SELF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>SelfWealth SMSF Leaders Index</td>
+      <td>Track</td>
+      <td>0.8800</td>
+      <td>No</td>
+      <td>2019-12-11</td>
+      <td>8.56</td>
+      <td>8.22</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://www.betashares.com.au/fund/australian-small-companies-select-fund-managed-fund/" target="_blank">BetaShares Australian Small Companies Select Fund (Managed Fund)</a></td>
+      <td>SMLL</td>
+      <td>MF</td>
+      <td>Yes, IRESS: SMLL.AX</td>
+      <td>S&P/ASX Small Ordinaries Index</td>
+      <td>Outperform</td>
+      <td>0.3900</td>
+      <td>No</td>
+      <td>2017-11-04</td>
+      <td>14.99</td>
+      <td>19.53</td>
+      <td>15.56</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.switzerassetmanagement.com.au/funds/swtz/" target="_blank">Switzer Dividend Growth Fund (Managed Fund)</a></td>
+      <td>SWTZ</td>
+      <td>MF</td>
+      <td>Yes, IRESS: SWTZINAV.ETF</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.8900</td>
+      <td>No</td>
+      <td>2017-02-24</td>
+      <td>13.67</td>
+      <td>14.28</td>
+      <td>8.83</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-msci-australia-select-high-dividend-yield-fund-SYI.html" target="_blank">SPDR MSCI Australia Select High Dividend Yield Fund </a></td>
+      <td>SYI</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YSYI</td>
+      <td>MSCI Australia Select High Dividend\nYield Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2010-09-29</td>
+      <td>9.20</td>
+      <td>12.54</td>
+      <td>9.30</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8226/Overview" target="_blank">Vanguard Ethically Conscious Australian Shares ETF</a></td>
+      <td>VETH</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE Australia 300 Choice Index</td>
+      <td>Track</td>
+      <td>0.1700</td>
+      <td>No</td>
+      <td>2020-10-14</td>
+      <td>15.34</td>
+      <td>15.88</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8210/Overview" target="_blank">Vanguard Australian Shares High Yield ETF</a></td>
+      <td>VHY</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>FTSE ASFA Australia High Dividend\nYield Index</td>
+      <td>Track</td>
+      <td>0.2500</td>
+      <td>No</td>
+      <td>2011-05-26</td>
+      <td>12.07</td>
+      <td>14.95</td>
+      <td>10.65</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="http://www.betashares.com.au/products/name/equity-yield-maximiser-fund/#each-overview" target="_blank">BetaShares Australia Top20 Equity Yield Max Fund</a></td>
+      <td>YMAX</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Buy/write Solactive Australia 20 Index</td>
+      <td>Track</td>
+      <td>0.7600</td>
+      <td>No</td>
+      <td>2012-11-26</td>
+      <td>12.29</td>
+      <td>12.97</td>
+      <td>7.55</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Equity-AustraliaStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/product/zyau" target="_blank">ETFS S&amp;P/ASX 300 High Yield Plus ETF</a></td>
+      <td>ZYAU</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P/ASX 300 Shareholder Yield Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2015-12-06</td>
+      <td>12.37</td>
+      <td>16.85</td>
+      <td>4.67</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/271031/ishares-global-100-aud-hedged-etf" target="_blank" title="ihoo">iShares Global 100 AUD Hedged ETF</a></td>
+      <td>IHOO</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Global 100 Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.4300</td>
+      <td>No</td>
+      <td>2014-12-18</td>
+      <td>21.64</td>
+      <td>26.39</td>
+      <td>17.37</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273428/ishares-global-100-etf" target="_blank" title="ioo">iShares S&amp;P Global 100 ETF</a></td>
+      <td>IOO</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Global 100 Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>31.06</td>
+      <td>30.72</td>
+      <td>20.65</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273432/ishares-msci-eafe-etf" target="_blank" title="ive">iShares MSCI EAFE ETF</a></td>
+      <td>IVE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI EAFE Index</td>
+      <td>Track</td>
+      <td>0.3100</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>15.97</td>
+      <td>16.11</td>
+      <td>10.49</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/283117/ishares-core-msci-world-all-cap-etf-fund" target="_blank">iShares Core MSCI World ex Australia ESG Leaders ETF</a></td>
+      <td>IWLD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World ex Australia Custom ESG Leaders Index</td>
+      <td>Track</td>
+      <td>0.1000</td>
+      <td>No</td>
+      <td>2016-04-28</td>
+      <td>35.91</td>
+      <td>35.60</td>
+      <td>19.57</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/0991/Overview" target="_blank">Vanguard All-World ex US Shares Index ETF</a></td>
+      <td>VEU</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE\nAll- World ex-US Index</td>
+      <td>Outperform</td>
+      <td>0.0800</td>
+      <td>No</td>
+      <td>2009-08-05</td>
+      <td>11.24</td>
+      <td>20.71</td>
+      <td>9.71</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8212/Overview" target="_blank">Vanguard MSCI Index International Shares ETF</a></td>
+      <td>VGS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World Ex Australia AUD Index</td>
+      <td>Track</td>
+      <td>0.1800</td>
+      <td>No</td>
+      <td>2014-11-20</td>
+      <td>27.45</td>
+      <td>26.83</td>
+      <td>18.28</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Equity-Global</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-world-ex-australia-fund-WXOZ.html" target="_blank">SPDR S&amp;P World ex Australian Fund</a></td>
+      <td>WXOZ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Developed Ex-Australia LargeMidCap AUD Index</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2013-03-19</td>
+      <td>26.42</td>
+      <td>26.00</td>
+      <td>17.87</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/electric-vehicles-and-future-mobility-etf/#announcements" title="Follow link">BetaShares Electric Vehicles and Future Mobility ETF</a></td>
+      <td>DRIV</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Future Mobility Index</td>
+      <td>Track</td>
+      <td>0.6700</td>
+      <td>No</td>
+      <td>2021-12-15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/future-of-payments-etf/#resources" title="Follow link">BetaShares Future of Payments ETF</a></td>
+      <td>IPAY</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq CTA Global Digital Payments Index</td>
+      <td>Track</td>
+      <td>0.6700</td>
+      <td>No</td>
+      <td>2021-12-15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.etfsecurities.com.au/product/acdc" target="_blank">ETFS Battery Tech &amp; Lithium ETF</a></td>
+      <td>ACDC</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Battery Value-Chain Index</td>
+      <td>Track</td>
+      <td>0.6900</td>
+      <td>No</td>
+      <td>2018-03-09</td>
+      <td>22.96</td>
+      <td>29.83</td>
+      <td>30.63</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/asia-technology-tigers-etf/" target="_blank">BetaShares Asia Technology Tigers ETF</a></td>
+      <td>ASIA</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Asia ex-Japan Technology & Internet Tigers Index</td>
+      <td>Track</td>
+      <td>0.6700</td>
+      <td>No</td>
+      <td>2018-09-21</td>
+      <td>-11.15</td>
+      <td>-4.50</td>
+      <td>24.41</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="http://www.betashares.com.au/products/name/global-banks-etf-currency-hedged/#each-overview" target="_blank">BetaShares Global Banks ETF - Currency Hedged</a></td>
+      <td>BNKS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Global Ex-Australia Banks Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2016-01-08</td>
+      <td>31.37</td>
+      <td>61.93</td>
+      <td>4.70</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/asia-technology-tigers-etf/" target="_blank">BetaShares Cloud Computing ETF</a></td>
+      <td>CLDD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Indxx Global Cloud Computing Index</td>
+      <td>Track</td>
+      <td>0.6700</td>
+      <td>No</td>
+      <td>2021-02-24</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.vaneck.com.au/news-and-media/news/media-release/vaneck-to-launch-australias-first-clean-energy-etf/" target="_blank">VanEck Global Clean Energy ETF</a></td>
+      <td>CLNE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Global Clean Energy Select Index</td>
+      <td>Track</td>
+      <td>0.6500</td>
+      <td>No</td>
+      <td>2021-10-03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.vaneck.com.au/funds/cnew/snapshot/" target="_blank">VanEck China New Economy ETF</a></td>
+      <td>CNEW</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>CSI Market Grader China New Economy Index</td>
+      <td>Track</td>
+      <td>0.9500</td>
+      <td>No</td>
+      <td>2018-09-11</td>
+      <td>16.60</td>
+      <td>14.07</td>
+      <td>27.52</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.etfsecurities.com.au/product/cure" target="_blank">ETFS S&amp;P Biotech ETF</a></td>
+      <td>CURE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Biotechnology Select Industry Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2018-12-11</td>
+      <td>-10.26</td>
+      <td>-9.26</td>
+      <td>13.21</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="http://www.betashares.com.au/products/name/global-healthcare-etf-currency-hedged/#each-overview" target="_blank">BetaShares Global Healthcare ETF - Currency Hedged</a></td>
+      <td>DRUG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Global Healthcare Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2016-08-08</td>
+      <td>17.66</td>
+      <td>30.54</td>
+      <td>13.19</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.vaneck.com.au/etf/equity/espo/snapshot/" target="_blank">VanEck Video Gaming and eSports ETF</a></td>
+      <td>ESPO</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MVIS® Global Video Gaming and eSports Index (AUD)</td>
+      <td>Track</td>
+      <td>0.5500</td>
+      <td>No</td>
+      <td>2020-10-09</td>
+      <td>13.54</td>
+      <td>16.14</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.etfsecurities.com.au/product/fang" target="_blank">ETFS FANG+ ETF</a></td>
+      <td>FANG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>NYSE®FANG+™ Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2020-02-27</td>
+      <td>31.78</td>
+      <td>38.86</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="http://www.betashares.com.au/products/name/global-agriculture-etf-currency-hedged/#each-overview" target="_blank">BetaShares Global Agriculture Companies ETF</a></td>
+      <td>FOOD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Global Agriculture Companies ex-Australia Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2016-04-08</td>
+      <td>21.88</td>
+      <td>38.97</td>
+      <td>10.93</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="http://www.betashares.com.au/products/name/global-energy-companies-etf-currency-hedged/#each-overview" target="_blank">BetaShares Global Energy Companies ETF - Currency Hedged</a></td>
+      <td>FUEL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Global ex- Australia Energy Companies Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2016-06-20</td>
+      <td>29.25</td>
+      <td>33.45</td>
+      <td>-4.93</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.vaneck.com.au/funds/gdx/snapshot/" target="_blank">VanEck Gold Miners ETF</a></td>
+      <td>GDX</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>NYSE Arca Gold Miners Index</td>
+      <td>Track</td>
+      <td>0.5300</td>
+      <td>No</td>
+      <td>2015-06-26</td>
+      <td>-3.79</td>
+      <td>-4.03</td>
+      <td>20.34</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="http://www.betashares.com.au/products/name/global-cybersecurity-etf/#each-overview" target="_blank">BetaShares Global Cybersecurity ETF</a></td>
+      <td>HACK</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq CTA Cybersecurity Total Return Index</td>
+      <td>Track</td>
+      <td>0.6700</td>
+      <td>No</td>
+      <td>2016-01-09</td>
+      <td>27.31</td>
+      <td>39.74</td>
+      <td>28.71</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.vaneck.com.au/etf/equity/hlth/snapshot/" target="_blank">VanEck Global Healthcare Leaders ETF</a></td>
+      <td>HLTH</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MarketGrader Developed Markets (ex-Australia) Health Care Net Return AUD Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2020-10-09</td>
+      <td>19.29</td>
+      <td>18.88</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/nasdaq-100-etf-currency-hedged/" target="_blank">BetaShares NASDAQ 100 ETF - Currency Hedged</a></td>
+      <td>HNDQ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>NASDAQ-100 Currency Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5100</td>
+      <td>No</td>
+      <td>2020-07-22</td>
+      <td>22.46</td>
+      <td>41.92</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273429/ishares-global-consumer-staples-etf" target="_blank" title="ixi">iShares S&amp;P Global Consumer Staples ETF</a></td>
+      <td>IXI</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Global 1200 Consumer Staples Sector Index</td>
+      <td>Track</td>
+      <td>0.4700</td>
+      <td>No</td>
+      <td>2009-11-03</td>
+      <td>13.65</td>
+      <td>11.57</td>
+      <td>9.47</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273430/ishares-global-healthcare-etf" target="_blank" title="ixj">iShares S&amp;P Global Healthcare ETF</a></td>
+      <td>IXJ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Global 1200 Health Care Index</td>
+      <td>Track</td>
+      <td>0.4700</td>
+      <td>No</td>
+      <td>2009-11-03</td>
+      <td>20.70</td>
+      <td>19.15</td>
+      <td>13.13</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="http://www.betashares.com.au/products/name/global-gold-miners-etf-currency-hedged/#each-overview" target="_blank">BetaShares Global Gold Miners ETF - Currency Hedged</a></td>
+      <td>MNRS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Global Gold Miners ex- Australia Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2016-07-29</td>
+      <td>-7.48</td>
+      <td>-2.37</td>
+      <td>26.44</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.betashares.com.au/fund/global-robotics-and-artificial-intelligence-etf/" target="_blank">BetaShares Global Robotics and Artificial Intelligence ETF</a></td>
+      <td>RBTZ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Indxx Global Robotics & Artificial Intelligence Thematic Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2018-09-14</td>
+      <td>19.77</td>
+      <td>19.09</td>
+      <td>24.94</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.etfsecurities.com.au/product/robo" target="_blank" title="robo">ETFS ROBO Global Robotics and Automation ETF</a></td>
+      <td>ROBO</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>ROBO Global® Robotics and Automation Index TR</td>
+      <td>Track</td>
+      <td>0.6900</td>
+      <td>No</td>
+      <td>2017-09-14</td>
+      <td>21.86</td>
+      <td>26.13</td>
+      <td>24.07</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.etfsecurities.com.au/product/tech" target="_blank">ETFS Morningstar Global Technology ETF</a></td>
+      <td>TECH</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Morningstar Developed Markets Technology Moat Focus Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2017-11-04</td>
+      <td>21.22</td>
+      <td>22.02</td>
+      <td>28.95</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Equity-GlobalSectors</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8227/Overview" target="_blank">Vanguard MSCI International Small Companies Index ETF</a></td>
+      <td>VISM</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World ex-Australia Small Cap Index</td>
+      <td>Track</td>
+      <td>0.3300</td>
+      <td>No</td>
+      <td>2018-11-13</td>
+      <td>21.48</td>
+      <td>24.50</td>
+      <td>14.93</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/etf/equity/gpeq/snapshot">VanEck Global Listed Private Equity ETF (ASX: GPEQ)</a></td>
+      <td>GPEQ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>LPX50 Index</td>
+      <td>Track</td>
+      <td>0.9200</td>
+      <td>No</td>
+      <td>2021-11-25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/" target="_blank">BetaShares Crypto Innovators ETF (ASX: CRYP)</a></td>
+      <td>CRYP</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bitwise Crypto Innovators Index</td>
+      <td>Track</td>
+      <td>0.6700</td>
+      <td>No</td>
+      <td>2021-04-11</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.fidelity.com.au/funds/fidelity-global-demographics-fund/?fundTab=story">Fidelity Global Demographics Fund (Managed Fund) (ASX: FDEM)<br/>\n</a></td>
+      <td>FDEM</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>MSCI All Country World Index NR\n\n</td>
+      <td>Outperform</td>
+      <td>0.8900</td>
+      <td>No</td>
+      <td>2021-12-13</td>
+      <td>18.68</td>
+      <td>18.64</td>
+      <td>16.26</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.loomissayles.com.au/global-equity-fund-quoted/fund-overview/" target="_blank" title="Loomis Sayles">Loomis Sayles Global Equity Fund (Quoted Managed Fund)<br/>\n</a></td>
+      <td>LSGE</td>
+      <td>MF</td>
+      <td>Yes IRESS: , LSGEAUDINAV.ETF, , ,</td>
+      <td>MSCI All Country World Index\n\n</td>
+      <td>Outperform</td>
+      <td>0.9900</td>
+      <td>Nil</td>
+      <td>2021-01-10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.janushenderson.com/FUTR" target="_blank">Janus Henderson Global Sustainable Equity Active ETF (Managed Fund)</a></td>
+      <td>FUTR</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>MSCI World Index (net dividends reinvested)</td>
+      <td>Outperform</td>
+      <td>0.8000</td>
+      <td>No</td>
+      <td>2021-09-22</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.magellangroup.com.au/" target="_blank">Magellan High Conviction Trust (Managed Fund)</a></td>
+      <td>MHHT</td>
+      <td>MF</td>
+      <td>Yes IRESS: MHHT-AUINAV.NGIF</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>2.4300</td>
+      <td>Yes</td>
+      <td>2021-08-31</td>
+      <td>-7.66</td>
+      <td>-11.65</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/" target="_blank" title="ETFS">ETFS Semiconductor ETF </a></td>
+      <td>SEMI</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Global Semiconductor 30 Index</td>
+      <td>Track</td>
+      <td>0.5700</td>
+      <td>No</td>
+      <td>2021-08-31</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/" target="_blank" title="ETFS">ETFS Hydrogen ETF </a></td>
+      <td>HGEN</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Global Hydrogen ESG Index</td>
+      <td>Track</td>
+      <td>0.6900</td>
+      <td>No</td>
+      <td>2021-07-07</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://k2am.com.au/k2-etfs" target="_blank">Apostle Dundas Global Equity Fund - Class D units (Managed Fund) </a></td>
+      <td>ADEF</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>MSCI All Country World Index (ex Australia)</td>
+      <td>Outperform</td>
+      <td>0.9000</td>
+      <td>No</td>
+      <td>2021-02-24</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.antipodespartners.com/AGX1/" target="_blank">Antipodes Global Shares (Quoted Managed Fund)</a></td>
+      <td>AGX1</td>
+      <td>MF</td>
+      <td>Yes, IRESS:, AGX1INAV.ETF</td>
+      <td>MSCI All Country World Net Index</td>
+      <td>Outperform</td>
+      <td>1.1000</td>
+      <td>Yes</td>
+      <td>2018-07-11</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/us-equities-strong-bear-fund/" target="_blank">BetaShares US Equities Strong Bear Currency Hedged (Hedge Fund)</a></td>
+      <td>BBUS</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>S&P 500 Index</td>
+      <td>Outperform</td>
+      <td>1.3800</td>
+      <td>No</td>
+      <td>2015-08-26</td>
+      <td>-41.14</td>
+      <td>-46.34</td>
+      <td>-42.45</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/betashares-legg-mason-emerging-markets-fund/" title="Follow link">BetaShares Martin Currie Emerging Markets Fund (Managed Fund)</a></td>
+      <td>EMMG</td>
+      <td>MF</td>
+      <td>Yes, IRESS: EMMGINAV.ETF</td>
+      <td>MSCI Emerging Markets Index</td>
+      <td>Outperform</td>
+      <td>1.0000</td>
+      <td>No</td>
+      <td>2019-06-06</td>
+      <td>3.78</td>
+      <td>6.72</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/funds/esgi/snapshot/" target="_blank">VanEck MSCI International Sustainable Equity ETF</a></td>
+      <td>ESGI</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World Ex Australia Ex Fossil Fuel Select SRI and Low Carbon Capped Index</td>
+      <td>Track</td>
+      <td>0.5500</td>
+      <td>No</td>
+      <td>2018-08-03</td>
+      <td>21.41</td>
+      <td>19.99</td>
+      <td>16.08</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="http://www.betashares.com.au/fund/global-sustainability-leaders-etf/" target="_blank">BetaShares Global Sustainability Leaders ETF</a></td>
+      <td>ETHI</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Future Global Sustainability Leaders Index</td>
+      <td>Track</td>
+      <td>0.5900</td>
+      <td>No</td>
+      <td>2017-09-01</td>
+      <td>28.42</td>
+      <td>29.15</td>
+      <td>28.13</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/climate-change-innovation-etf/" target="_blank" title="erth">BetaShares Climate Change Innovation ETF</a></td>
+      <td>ERTH</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Climate Change and Environmental Opportunities Index</td>
+      <td>Track</td>
+      <td>0.6500</td>
+      <td>No</td>
+      <td>2021-11-03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.fidelity.com.au/funds/fidelity-global-emerging-markets-fund/" target="_blank">Fidelity Global Emerging Markets Fund (Managed Fund)</a></td>
+      <td>FEMX</td>
+      <td>MF</td>
+      <td>Yes, IRESS: FEMXINAV.ETF</td>
+      <td>MSCI Emerging Markets Index NR</td>
+      <td>Outperform</td>
+      <td>0.9900</td>
+      <td>No</td>
+      <td>2018-05-11</td>
+      <td>10.14</td>
+      <td>15.39</td>
+      <td>18.79</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/geared-us-fund-betashares/" target="_blank">BetaShares Geared US Equity Fund Currency Hedged (Hedge Fund)</a></td>
+      <td>GGUS</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>S&P 500 Index</td>
+      <td>Outperform</td>
+      <td>0.8000</td>
+      <td>No</td>
+      <td>2015-08-18</td>
+      <td>49.72</td>
+      <td>60.93</td>
+      <td>33.51</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/etf/equity/goat/snapshot/" target="_blank">VanEck Morningstar World Ex Australia Wide Moat ETF</a></td>
+      <td>GOAT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Morningstar® Developed Markets ex Australia Wide Moat Focus Index™</td>
+      <td>Track</td>
+      <td>0.5500</td>
+      <td>No</td>
+      <td>2020-10-09</td>
+      <td>22.25</td>
+      <td>19.66</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/global-sustainability-leaders-etf-currency-hedged/" target="_blank">BetaShares Global Sustainability Leaders ETF - Currency Hedged </a></td>
+      <td>HETH</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>NASDAQ Future Global Sustainability Leaders Currency Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.6200</td>
+      <td>No</td>
+      <td>2020-07-22</td>
+      <td>20.68</td>
+      <td>42.04</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/global-quality-leaders-etf-currency-hedged/" target="_blank">BetaShares Global Quality Leaders ETF (Currency Hedged)</a></td>
+      <td>HQLT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>iSTOXX MUTB Global ex-Australia Quality Leaders Index AUD Hedged</td>
+      <td>Track</td>
+      <td>0.3800</td>
+      <td>No</td>
+      <td>2020-10-06</td>
+      <td>20.74</td>
+      <td>35.85</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.hyperion.com.au/hyperion-small-growth-companies-fund/" target="_blank">Hyperion Global Growth Companies Fund (Managed Fund)</a></td>
+      <td>HYGG</td>
+      <td>MF</td>
+      <td>Yes, IRESS: HYGG.AXW</td>
+      <td>MSCI World Accumulation Index (AUD)</td>
+      <td>Outperform</td>
+      <td>0.7000</td>
+      <td>Yes</td>
+      <td>2021-03-22</td>
+      <td>24.61</td>
+      <td>25.45</td>
+      <td>31.42</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/283119/ishares-core-msci-world-all-cap-(aud-hedged)-etf-fund" target="_blank">iShares Core MSCI World ex Australia ESG Leaders (AUD Hedged) ETF</a></td>
+      <td>IHWL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World ex Australia Custom ESG Leaders Index 100% Hedged to AUD</td>
+      <td>Track</td>
+      <td>0.1300</td>
+      <td>No</td>
+      <td>2016-04-28</td>
+      <td>27.00</td>
+      <td>31.59</td>
+      <td>16.32</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/global-income-leaders-etf/" target="_blank">BetaShares Global Income Leaders ETF</a></td>
+      <td>INCM</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nasdaq Global Income Leaders Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2018-10-22</td>
+      <td>20.08</td>
+      <td>16.62</td>
+      <td>2.79</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/category/short--leveraged" target="_blank">ETFS Ultra Long NASDAQ 100 (Hedge Fund)</a></td>
+      <td>LNAS</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>Nasdaq 100 Index</td>
+      <td>Outperform</td>
+      <td>1.0000</td>
+      <td>No</td>
+      <td>2020-07-13</td>
+      <td>60.91</td>
+      <td>79.46</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.loftuspeak.com.au/" target="_blank">Loftus Peak Global Disruption Fund (Managed Fund)</a></td>
+      <td>LPGD</td>
+      <td>MF</td>
+      <td>Yes, IRESS: LPGDINAV.ETF</td>
+      <td>MSCI All Countries World Index (net dividends reinvested) in Australian Dollars</td>
+      <td>Outperform</td>
+      <td>1.2000</td>
+      <td>Yes</td>
+      <td>2020-09-11</td>
+      <td>22.98</td>
+      <td>23.97</td>
+      <td>30.31</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://munropartners.com.au/funds/munro-global-growth-fund/#maet.asx" target="_blank" title="maet">Munro Global Growth Fund (Hedge Fund)</a></td>
+      <td>MAET</td>
+      <td>MF</td>
+      <td>Yes, IRESS: MAETINAV.ETF</td>
+      <td>MSCI All Country World Index in $A (Net)</td>
+      <td>Outperform</td>
+      <td>1.3500</td>
+      <td>Yes</td>
+      <td>2020-02-11</td>
+      <td>14.07</td>
+      <td>16.53</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.magellangroup.com.au/funds/magellan-global-fund-open-class-asx-mgoc/" target="_blank">Magellan Global Fund (Open Class) (Managed Fund)</a></td>
+      <td>MGOC</td>
+      <td>MF</td>
+      <td>Yes, IRESS: MGOC-AUINAV.NGIF</td>
+      <td>MSCI World Total Return Index (AUD)</td>
+      <td>Outperform</td>
+      <td>1.3500</td>
+      <td>Yes</td>
+      <td>2020-11-30</td>
+      <td>15.71</td>
+      <td>12.03</td>
+      <td>13.16</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.magellangroup.com.au/funds/magellan-global-equities-fund-currency-hedged-managed-fund-asx-mhg/" target="_blank">Magellan Global Equities Fund Currency Hedged (Managed Fund)</a></td>
+      <td>MHG</td>
+      <td>MF</td>
+      <td>Yes, IRESS: MHG-AUINAV.NGIF</td>
+      <td>MSCI World Net Total Return Index (hedged to AUD)</td>
+      <td>Outperform</td>
+      <td>1.3500</td>
+      <td>Yes</td>
+      <td>2015-10-08</td>
+      <td>9.33</td>
+      <td>13.92</td>
+      <td>11.73</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://montaka.com/our-philosophy/active-extension/mkax/" target="_blank">Montaka Global Extension Fund (Quoted Managed Hedged Fund)</a></td>
+      <td>MKAX</td>
+      <td>MF</td>
+      <td>Yes, IRESS: MKAXINAV.ETF</td>
+      <td>7% per annum</td>
+      <td>Outperform</td>
+      <td>1.2500</td>
+      <td>Yes</td>
+      <td>2020-06-24</td>
+      <td>26.17</td>
+      <td>20.95</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/funds/moat/snapshot/" target="_blank">VanEck Morningstar Wide Moat ETF</a></td>
+      <td>MOAT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Morningstar Wide Moat Focus Index</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2015-06-26</td>
+      <td>28.86</td>
+      <td>26.48</td>
+      <td>19.47</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://montaka.com/our-philosophy/montaka-global-long-only/mogl/" target="_blank">Montaka Global Long Only Equities Fund (Managed Fund)</a></td>
+      <td>MOGL</td>
+      <td>MF</td>
+      <td>Yes, IRESS: MOGLINAV.ETF</td>
+      <td>MSCI World Net Total Return USD Index</td>
+      <td>Outperform</td>
+      <td>1.3200</td>
+      <td>Yes</td>
+      <td>2017-12-20</td>
+      <td>30.07</td>
+      <td>26.30</td>
+      <td>12.70</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.morningstar.com.au/ETFs/NewsAndQuotes/MSTR" target="_blank">Morningstar International Shares Active ETF (Managed Fund)</a></td>
+      <td>MSTR</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>MSCI All Country World ex-Australia Index with Net Dividends Reinvested (Hedged into AUD)</td>
+      <td>Outperform</td>
+      <td>0.3900</td>
+      <td>No</td>
+      <td>2019-12-11</td>
+      <td>-8.63</td>
+      <td>-6.06</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.platinum.com.au/Our-Products/All-Products/PIXX-Quoted-Managed" target="_blank">Platinum International Fund (Quoted Managed Hedge Fund)</a></td>
+      <td>PIXX</td>
+      <td>MF</td>
+      <td>Yes, IRESS: PIXXINAV.ETF</td>
+      <td>MSCI All Country World Net Index in AUD</td>
+      <td>Outperform</td>
+      <td>1.1000</td>
+      <td>Yes</td>
+      <td>2017-09-14</td>
+      <td>8.33</td>
+      <td>8.81</td>
+      <td>9.29</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/funds/qhal/snapshot" target="_blank">VanEck MSCI World Ex-Australia Quality (Hedged) ETF</a></td>
+      <td>QHAL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World ex Australia Quality 100% Hedged to AUD Index</td>
+      <td>Track</td>
+      <td>0.4300</td>
+      <td>No</td>
+      <td>2019-03-25</td>
+      <td>22.85</td>
+      <td>26.48</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/global-quality-leaders-etf/" target="_blank">BetaShares Global Quality Leaders ETF</a></td>
+      <td>QLTY</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>iSTOXX MUTB Global ex-Australia Quality Leaders Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2018-07-11</td>
+      <td>27.99</td>
+      <td>27.45</td>
+      <td>23.56</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-msci-world-quality-mix-fund-QMIX.html" target="_blank">SPDR MSCI World Quality Mix Fund</a></td>
+      <td>QMIX</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World Factor Mix\nA-Series Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2015-09-14</td>
+      <td>25.06</td>
+      <td>23.58</td>
+      <td>15.83</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/blog/etfs/new-quality-international-small-companies-etf/" target="_blank">VanEck MSCI International Small Companies Quality ETF</a></td>
+      <td>QSML</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World ex Australia Small Cap Quality 150 Index</td>
+      <td>Track</td>
+      <td>0.5900</td>
+      <td>No</td>
+      <td>2021-10-03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="http://www.vaneck.com.au/" target="_blank">VanEck MSCI World Ex-Australia Quality ETF</a></td>
+      <td>QUAL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World Ex Australia Quality Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2014-10-31</td>
+      <td>31.91</td>
+      <td>30.57</td>
+      <td>24.24</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/category/short--leveraged" target="_blank">ETFS Ultra Short NASDAQ 100 (Hedge Fund)</a></td>
+      <td>SNAS</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>Nasdaq 100 Index</td>
+      <td>Outperform</td>
+      <td>1.0000</td>
+      <td>No</td>
+      <td>2020-07-13</td>
+      <td>-47.07</td>
+      <td>-52.83</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/yield-maximiser-fund/" target="_blank">BetaShares S&amp;P 500 Yield Maximiser Fund (Managed Fund)</a></td>
+      <td>UMAX</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>Buy/Write S&P 500 Index</td>
+      <td>Track</td>
+      <td>0.7900</td>
+      <td>No</td>
+      <td>2014-09-19</td>
+      <td>22.42</td>
+      <td>26.96</td>
+      <td>9.48</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8225/Overview" target="_blank">Vanguard Ethically Conscious International Shares Index ETF</a></td>
+      <td>VESG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE Developed ex-Australia ex-Non-renewable Energy, Vice Products and Weapons Index</td>
+      <td>Track</td>
+      <td>0.1800</td>
+      <td>No</td>
+      <td>2018-09-13</td>
+      <td>27.63</td>
+      <td>27.37</td>
+      <td>20.16</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8213/Overview" target="_blank">Vanguard MSCI Index International Shares (Hedged) ETF</a></td>
+      <td>VGAD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World Ex Australia Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.2100</td>
+      <td>No</td>
+      <td>2014-11-20</td>
+      <td>19.15</td>
+      <td>23.26</td>
+      <td>15.36</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8229/Overview" target="_blank">Vanguard Global Multi-Factor Active ETF (Managed Fund)</a></td>
+      <td>VGMF</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>FTSE Developed All Cap Index (with net dividends reinvested) in Australian dollars</td>
+      <td>Outperform</td>
+      <td>0.3400</td>
+      <td>No</td>
+      <td>2019-10-04</td>
+      <td>27.87</td>
+      <td>28.31</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vaneck.com.au/blog/etfs/new-international-value-etf/" target="_blank">VanEck MSCI International Value ETF</a></td>
+      <td>VLUE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI World ex Australia Enchanced Value Top 250 Select Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2021-10-03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8201/Overview" target="_blank">Vanguard Global Minimum Volatility Active ETF (Managed Fund)</a></td>
+      <td>VMIN</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>FTSE Global All Cap Index (AUD Hedged)</td>
+      <td>Outperform</td>
+      <td>0.2800</td>
+      <td>No</td>
+      <td>2018-04-17</td>
+      <td>5.66</td>
+      <td>8.45</td>
+      <td>5.94</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8202/Overview" target="_blank">Vanguard Global Value Equity Active ETF (Managed Fund)</a></td>
+      <td>VVLU</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>FTSE Developed All-Cap in Australian Dollars Index</td>
+      <td>Outperform</td>
+      <td>0.2900</td>
+      <td>No</td>
+      <td>2018-04-17</td>
+      <td>33.97</td>
+      <td>35.44</td>
+      <td>10.05</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.switzerassetmanagement.com.au/investments/wcm/" target="_blank">WCM Quality Global Growth Fund (Quoted Managed Fund)</a></td>
+      <td>WCMQ</td>
+      <td>MF</td>
+      <td>Yes, IRESS: WCMQINAV.ETF</td>
+      <td>Outperform MSCI All Country World Index (ex-Australia) with gross dividends reinvested, reported in AUD and unhedged</td>
+      <td>Outperform</td>
+      <td>1.3500</td>
+      <td>Yes</td>
+      <td>2018-03-09</td>
+      <td>16.90</td>
+      <td>17.65</td>
+      <td>23.98</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-global-dividend-fund-WDIV.html" target="_blank">SPDR S&amp;P Global Dividend Fund</a></td>
+      <td>WDIV</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Global Dividend Aristocrats Index</td>
+      <td>Track</td>
+      <td>0.5000</td>
+      <td>No</td>
+      <td>2013-04-11</td>
+      <td>18.23</td>
+      <td>17.29</td>
+      <td>4.84</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.betashares.com.au/fund/managed-risk-global-share-fund/" target="_blank">BetaShares Managed Risk Global Share Fund (Managed Fund)</a></td>
+      <td>WRLD</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.5400</td>
+      <td>No</td>
+      <td>2015-12-21</td>
+      <td>22.87</td>
+      <td>22.11</td>
+      <td>12.02</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-world-ex-australia-hedged-fund-WXHG.html" target="_blank">SPDR S&amp;P World ex Australian (Hedged) Fund</a></td>
+      <td>WXHG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Developed Ex-Australia LargeMid\nCap AUD Hedged Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2013-09-07</td>
+      <td>18.50</td>
+      <td>22.70</td>
+      <td>14.80</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>Equity-GlobalStrategy</td>
+      <td><a href="https://www.etfsecurities.com.au/product/zyus" target="_blank">ETFS S&amp;P 500 High Yield Low Volatility ETF</a></td>
+      <td>ZYUS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P 500 Low Volatility High Dividend Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2015-12-06</td>
+      <td>24.14</td>
+      <td>21.63</td>
+      <td>5.02</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>Equity-GlobalFactors</td>
+      <td><a href="https://www.betashares.com.au/fund/ftse-rafi-us-etf/" target="_blank">BetaShares S&amp;P 500 Equal Weight ETF</a></td>
+      <td>QUS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P 500 Equal Weight Index</td>
+      <td>Track</td>
+      <td>0.2900</td>
+      <td>No</td>
+      <td>2014-12-19</td>
+      <td>32.11</td>
+      <td>30.99</td>
+      <td>15.01</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>Equity-GlobalFactors</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/284665/ishares-edge-msci-world-multi-factor-etf" target="_blank">iShares Edge MSCI World Multifactor ETF</a></td>
+      <td>WDMF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>iShares Edge MSCI World Multifactor ETF</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2016-10-14</td>
+      <td>23.57</td>
+      <td>22.90</td>
+      <td>13.48</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>Equity-GlobalFactors</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/284667/ishares-edge-msci-world-minimum-volatility-etf" target="_blank">iShares Edge MSCI World Minimum Volatility ETF</a></td>
+      <td>WVOL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>iShares Edge MSCI World Minimum Volatility ETF</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2016-10-14</td>
+      <td>17.39</td>
+      <td>14.73</td>
+      <td>10.19</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>Equity-EmergingMarkets</td>
+      <td><a href="https://www.vaneck.com.au/funds/emkt/snapshot/" target="_blank">VanEck MSCI Multifactor Emerging Markets Equity ETF</a></td>
+      <td>EMKT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Emerging Markets Diversified Multiple-Factor Index (AUD)</td>
+      <td>Track</td>
+      <td>0.6900</td>
+      <td>No</td>
+      <td>2018-12-04</td>
+      <td>11.99</td>
+      <td>14.92</td>
+      <td>10.43</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>Equity-EmergingMarkets</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273417/ishares-msci-emerging-markets-etf" target="_blank">iShares MSCI Emerging Markets ETF</a></td>
+      <td>IEM</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Emerging Markets Index</td>
+      <td>Track</td>
+      <td>0.6900</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>3.27</td>
+      <td>5.47</td>
+      <td>8.91</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>Equity-EmergingMarkets</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8204/Overview" target="_blank">Vanguard FTSE Emerging Markets Shares ETF</a></td>
+      <td>VGE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE Emerging Markets Index</td>
+      <td>Track</td>
+      <td>0.4800</td>
+      <td>No</td>
+      <td>2013-11-21</td>
+      <td>7.92</td>
+      <td>9.11</td>
+      <td>10.49</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>Equity-EmergingMarkets</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-emerging-markets-fund-WEMG.html" target="_blank">SPDR S&amp;P Emerging Markets Fund</a></td>
+      <td>WEMG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Emerging Markets Large Mid Cap Index</td>
+      <td>Track</td>
+      <td>0.6500</td>
+      <td>No</td>
+      <td>2013-04-11</td>
+      <td>5.00</td>
+      <td>6.63</td>
+      <td>9.74</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Equity-Asia</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273416/ishares-asia-50-etf" target="_blank">iShares S&amp;P Asia 50 ETF</a></td>
+      <td>IAA</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Asia 50 Index</td>
+      <td>Track</td>
+      <td>0.5100</td>
+      <td>No</td>
+      <td>2008-10-09</td>
+      <td>-3.96</td>
+      <td>-1.47</td>
+      <td>12.75</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>Equity-Asia</td>
+      <td><a href="https://www.platinum.com.au/Our-Products/All-Products/PAXX-Quoted-Managed" target="_blank">Platinum Asia Fund (Quoted Managed Hedge Fund)</a></td>
+      <td>PAXX</td>
+      <td>MF</td>
+      <td>Yes, IRESS: PAXXINAV.ETF</td>
+      <td>MSCI All Country Asia ex Japan Net Index in AUD</td>
+      <td>Outperform</td>
+      <td>1.1000</td>
+      <td>Yes</td>
+      <td>2017-09-14</td>
+      <td>-2.26</td>
+      <td>-0.36</td>
+      <td>14.09</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>Equity-Asia</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8215/Overview" target="_blank">Vanguard FTSE Asia Ex-Japan Shares Index ETF</a></td>
+      <td>VAE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE Asia Pacific ex Japan Australia and New Zealand</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2015-11-12</td>
+      <td>3.00</td>
+      <td>4.97</td>
+      <td>11.48</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>Equity-China</td>
+      <td><a href="https://www.vaneck.com.au/funds/cetf/snapshot/" target="_blank">VanEck ChinaAMC A-Share ETF</a></td>
+      <td>CETF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>VanEck ChinaAMC A-Share ETF</td>
+      <td>Track</td>
+      <td>0.6000</td>
+      <td>No</td>
+      <td>2015-06-26</td>
+      <td>-2.24</td>
+      <td>0.16</td>
+      <td>15.26</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Equity-China</td>
+      <td><a href="http://au.ishares.com/fund/fund-overview-IZZ-ASX.do" target="_blank">iShares FTSE China Large-Cap ETF</a></td>
+      <td>IZZ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>iShares FTSE China Large-Cap ETF</td>
+      <td>Track</td>
+      <td>0.7700</td>
+      <td>No</td>
+      <td>2007-11-15</td>
+      <td>-10.23</td>
+      <td>-14.25</td>
+      <td>-0.36</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>Equity-Europe</td>
+      <td><a href="https://www.etfsecurities.com.au/product/estx" target="_blank">ETFS EURO STOXX 50 ETF</a></td>
+      <td>ESTX</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>EURO STOXX\n50® Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2016-07-21</td>
+      <td>16.54</td>
+      <td>15.80</td>
+      <td>11.86</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>Equity-Europe</td>
+      <td><a href="https://www.betashares.com.au/fund/europe-etf-currency-hedged/" target="_blank">BetaShares Europe ETF - Currency Hedged</a></td>
+      <td>HEUR</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Eurozone Exporters Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5600</td>
+      <td>No</td>
+      <td>2016-12-05</td>
+      <td>18.36</td>
+      <td>21.19</td>
+      <td>11.48</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>Equity-Europe</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273427/ishares-europe-etf" target="_blank">iShares S&amp;P Europe ETF</a></td>
+      <td>IEU</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Europe 350 Index</td>
+      <td>Track</td>
+      <td>0.6000</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>20.17</td>
+      <td>20.12</td>
+      <td>11.31</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>Equity-Europe</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8214/Overview" target="_blank">Vanguard FTSE Europe Shares ETF</a></td>
+      <td>VEQ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE Developed Europe All Cap Index</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2015-11-12</td>
+      <td>20.23</td>
+      <td>20.44</td>
+      <td>11.95</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>Equity-Japan</td>
+      <td><a href="https://www.betashares.com.au/fund/japan-etf-currency-hedged/" target="_blank">BetaShares Japan  ETF - Currency Hedged</a></td>
+      <td>HJPN</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P Japan Exporters Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.5600</td>
+      <td>No</td>
+      <td>2016-12-05</td>
+      <td>12.09</td>
+      <td>17.06</td>
+      <td>10.50</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>Equity-Japan</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273434/ishares-msci-japan-etf" target="_blank">iShares MSCI Japan ETF</a></td>
+      <td>IJP</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Japan Index</td>
+      <td>Track</td>
+      <td>0.4700</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>7.52</td>
+      <td>8.08</td>
+      <td>8.73</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>Equity-SouthKorea</td>
+      <td><a href="http://au.ishares.com/fund/fund-overview-IKO-ASX.do" target="_blank">iShares MSCI South Korea Capped Index ETF</a></td>
+      <td>IKO</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>MSCI Korea 25-50 Index</td>
+      <td>Track</td>
+      <td>0.6300</td>
+      <td>No</td>
+      <td>2007-11-15</td>
+      <td>-4.23</td>
+      <td>3.66</td>
+      <td>10.09</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>Equity-UnitedKingdom</td>
+      <td><a href="https://www.betashares.com.au/fund/ftse-100-etf/" target="_blank">BetaShares FTSE 100 ETF</a></td>
+      <td>F100</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE 100 Index</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2019-07-16</td>
+      <td>18.59</td>
+      <td>32.51</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/271027/ishares-s-and-p-500-aud-hedged-etf" target="_blank">iShares S&amp;P 500 AUD Hedged ETF</a></td>
+      <td>IHVV</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P 500 Hedged AUD Index</td>
+      <td>Track</td>
+      <td>0.1000</td>
+      <td>No</td>
+      <td>2014-12-18</td>
+      <td>22.26</td>
+      <td>26.56</td>
+      <td>17.29</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273425/ishares-s-p-mid-cap-etf-fund" target="_blank">iShares S&amp;P Midcap ETF</a></td>
+      <td>IJH</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P MidCap 400 Index</td>
+      <td>Track</td>
+      <td>0.0900</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>28.91</td>
+      <td>30.97</td>
+      <td>15.48</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/273426/ishares-s-p-small-cap-etf-fund" target="_blank">iShares S&amp;P Small-Cap ETF</a></td>
+      <td>IJR</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P SmallCap 600 Index</td>
+      <td>Track</td>
+      <td>0.0900</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>31.64</td>
+      <td>35.99</td>
+      <td>14.14</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/275304/ishares-s-p-500-etf-fund" target="_blank">iShares S&amp;P 500 ETF</a></td>
+      <td>IVV</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P 500 Index</td>
+      <td>Track</td>
+      <td>0.0400</td>
+      <td>No</td>
+      <td>2007-10-10</td>
+      <td>33.79</td>
+      <td>32.48</td>
+      <td>21.18</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.betashares.com.au/fund/nasdaq-100-etf/" target="_blank">BetaShares NASDAQ 100 ETF</a></td>
+      <td>NDQ</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>NASDAQ 100\nStock Index</td>
+      <td>Track</td>
+      <td>0.4800</td>
+      <td>No</td>
+      <td>2015-05-26</td>
+      <td>36.38</td>
+      <td>36.80</td>
+      <td>34.08</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-500-etf-trust-SPY.html" target="_blank">SPDR S&amp;P 500 ETF Trust</a></td>
+      <td>SPY</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P 500 Index</td>
+      <td>Track</td>
+      <td>0.0945</td>
+      <td>No</td>
+      <td>2014-10-13</td>
+      <td>33.67</td>
+      <td>32.52</td>
+      <td>21.30</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>Equity-USA</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/0970/Overview" target="_blank">Vanguard US Total Market Shares Index ETF</a></td>
+      <td>VTS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>CRSP US Total Market Index</td>
+      <td>Track</td>
+      <td>0.0300</td>
+      <td>No</td>
+      <td>2009-08-05</td>
+      <td>31.47</td>
+      <td>31.13</td>
+      <td>21.38</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>Equity-India</td>
+      <td><a href="https://www.betashares.com.au/fund/india-quality-etf/" target="_blank">BetaShares India Quality ETF</a></td>
+      <td>IIND</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive India Quality Select Index NTR</td>
+      <td>Track</td>
+      <td>0.8000</td>
+      <td>No</td>
+      <td>2019-06-08</td>
+      <td>15.63</td>
+      <td>23.45</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>Equity-India</td>
+      <td><a href="https://www.etfsecurities.com.au/product/ndia" target="_blank">ETFS Reliance India Nifty 50 ETF</a></td>
+      <td>NDIA</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Nifty50 Index</td>
+      <td>Track</td>
+      <td>0.6900</td>
+      <td>No</td>
+      <td>2019-06-21</td>
+      <td>25.88</td>
+      <td>30.26</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>Equity-Infrastructure</td>
+      <td><a href="http://www.vaneck.com.au/" target="_blank">VanEck FTSE Global Infrastructure (Hedged) ETF</a></td>
+      <td>IFRA</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE Developed Core Infrastructure 50/50 Index</td>
+      <td>Track</td>
+      <td>0.5200</td>
+      <td>No</td>
+      <td>2016-03-05</td>
+      <td>9.35</td>
+      <td>9.03</td>
+      <td>6.13</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>Equity-Infrastructure</td>
+      <td><a href="https://www.magellangroup.com.au/funds/magellan-infrastructure-fund-currency-hedged-managed-fund-asx-mich/" target="_blank">Magellan Infrastructure Fund (Currency Hedged) (Managed Fund)</a></td>
+      <td>MICH</td>
+      <td>MF</td>
+      <td>Yes, IRESS: MICH-AUINAV.NGIF</td>
+      <td>S&P Global Infrastructure Index A$ Hedged Total Return</td>
+      <td>Outperform</td>
+      <td>1.0600</td>
+      <td>Yes</td>
+      <td>2016-07-22</td>
+      <td>7.36</td>
+      <td>12.67</td>
+      <td>5.84</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>Equity-Infrastructure</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8228/Overview" target="_blank">Vanguard Global Infrastructure Index ETF</a></td>
+      <td>VBLD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Track FTSE Developed Core Infrastructure Index (with net diviends reinvested)(AUD)</td>
+      <td>Track</td>
+      <td>0.4700</td>
+      <td>No</td>
+      <td>2018-10-23</td>
+      <td>19.49</td>
+      <td>15.12</td>
+      <td>10.01</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>Property-Australia</td>
+      <td><a href="https://www.vaneck.com.au/funds/mva/snapshot/" target="_blank">VanEck Australian Property ETF</a></td>
+      <td>MVA</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YMVA</td>
+      <td>Market Australia A-REITs</td>
+      <td>Track</td>
+      <td>0.3500</td>
+      <td>No</td>
+      <td>2013-10-16</td>
+      <td>17.37</td>
+      <td>17.62</td>
+      <td>11.59</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>Property-Australia</td>
+      <td><a href="https://www.betashares.com.au/fund/betashares-legg-mason-real-income-fund/" title="Follow link">BetaShares Martin Currie Real Income Fund (Managed Fund)</a></td>
+      <td>RINC</td>
+      <td>MF</td>
+      <td>Yes, IRESS: RINCINAV.ETF</td>
+      <td>S&P/ASX 200</td>
+      <td>Outperform</td>
+      <td>0.8500</td>
+      <td>No</td>
+      <td>2018-02-19</td>
+      <td>13.95</td>
+      <td>13.66</td>
+      <td>7.68</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>Property-Australia</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-200-listed-property-fund-SLF.html" target="_blank">SPDR S&amp;P/ASX 200 Listed Property Fund</a></td>
+      <td>SLF</td>
+      <td>ETF</td>
+      <td>Yes, ASX: YSLF</td>
+      <td>S&P/ASX 200 A-REIT Index</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2002-02-18</td>
+      <td>19.74</td>
+      <td>20.20</td>
+      <td>11.36</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>Property-Australia</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8206/Overview" target="_blank" title="vap">Vanguard Australian Property Securities Index ETF</a></td>
+      <td>VAP</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P/ASX 300 A-REIT Index</td>
+      <td>Track</td>
+      <td>0.2300</td>
+      <td>No</td>
+      <td>2010-10-15</td>
+      <td>20.46</td>
+      <td>21.18</td>
+      <td>11.98</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>Property-Global</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-dow-jones-global-real-estate-fund-DJRE.html" target="_blank">SPDR Dow Jones Global Select Real Estate Fund</a></td>
+      <td>DJRE</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Dow Jones Global Select Real Estate Securities Index</td>
+      <td>Track</td>
+      <td>0.5000</td>
+      <td>No</td>
+      <td>2013-04-11</td>
+      <td>32.74</td>
+      <td>31.77</td>
+      <td>8.12</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>Property-Global</td>
+      <td><a href="https://www.vaneck.com.au/funds/reit/snapshot" target="_blank">VanEck FTSE International Property (Hedged) ETF</a></td>
+      <td>REIT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>FTSE EPRA NAREIT Developed ex Australia Rental Index AUD Hedged</td>
+      <td>Track</td>
+      <td>0.4300</td>
+      <td>No</td>
+      <td>2019-02-04</td>
+      <td>23.79</td>
+      <td>27.30</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>Currency</td>
+      <td><a href="http://www.betashares.com.au/fund/strong-australian-dollar-fund/" target="_blank">BetaShares Strong Australian Dollar Fund (Hedge Fund)</a></td>
+      <td>AUDS</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Geared exposure to the value of the change in AUD relative to the USD</td>
+      <td>Outperform</td>
+      <td>1.3800</td>
+      <td>No</td>
+      <td>2017-01-24</td>
+      <td>-8.53</td>
+      <td>11.58</td>
+      <td>-1.94</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>Currency</td>
+      <td><a href="https://www.betashares.com.au/fund/euro-etf-betashares/" target="_blank">BetaShares Euro ETF</a></td>
+      <td>EEU</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Euro</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2011-11-07</td>
+      <td>-0.97</td>
+      <td>-3.35</td>
+      <td>-0.11</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>Currency</td>
+      <td><a href="https://www.betashares.com.au/fund/british-pound-etf-betashares/" target="_blank">BetaShares British Pound ETF</a></td>
+      <td>POU</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>British Pound</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2011-11-07</td>
+      <td>4.89</td>
+      <td>2.52</td>
+      <td>2.02</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>Currency</td>
+      <td><a href="https://www.betashares.com.au/fund/us-dollar-etf-betashares/" target="_blank">BetaShares U.S Dollar ETF</a></td>
+      <td>USD</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>US Dollar</td>
+      <td>Track</td>
+      <td>0.4500</td>
+      <td>No</td>
+      <td>2011-01-02</td>
+      <td>8.49</td>
+      <td>3.58</td>
+      <td>1.57</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>Currency</td>
+      <td><a href="http://www.betashares.com.au/fund/strong-us-dollar-fund/" target="_blank">BetaShares Strong US Dollar Fund (Hedge Fund)</a></td>
+      <td>YANK</td>
+      <td>MF</td>
+      <td>Yes</td>
+      <td>Geared exposure to the value of the change in USD relative to the AUD</td>
+      <td>Outperform</td>
+      <td>1.3800</td>
+      <td>No</td>
+      <td>2017-01-24</td>
+      <td>4.25</td>
+      <td>-16.61</td>
+      <td>-8.33</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8203/Overview" target="_blank" title="Follow link">Vanguard Australian Corporate Fixed Interest Index ETF</a></td>
+      <td>VACF</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Bloomberg AusBond Credit 0+ Yr Index</td>
+      <td>Track</td>
+      <td>0.2000</td>
+      <td>No</td>
+      <td>2016-05-25</td>
+      <td>-2.05</td>
+      <td>-1.98</td>
+      <td>3.41</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vanguardinvestments.com.au/retail/ret/investments/etfs.jsp" target="_blank" title="Follow link">Vanguard Australian Fixed Interest Index ETF</a></td>
+      <td>VAF</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Bloomberg AusBond Composite Index</td>
+      <td>Track</td>
+      <td>0.1500</td>
+      <td>No</td>
+      <td>2012-10-31</td>
+      <td>-3.14</td>
+      <td>-3.39</td>
+      <td>3.16</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.betashares.com.au/fund/australian-government-bond-etf/" target="_blank">BetaShares Australian Government Bond ETF</a></td>
+      <td>AGVT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Australian Government 7-12 Year AUD TR Index</td>
+      <td>Track</td>
+      <td>0.2200</td>
+      <td>No</td>
+      <td>2019-09-07</td>
+      <td>-4.74</td>
+      <td>-5.18</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.betashares.com.au/fund/betashares-legg-mason-australian-bond-fund/" title="Follow link">BetaShares Western Asset Australian Bond Fund (Managed Fund)</a></td>
+      <td>BNDS</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Composite Index</td>
+      <td>Outperform</td>
+      <td>0.4200</td>
+      <td>No</td>
+      <td>2018-11-16</td>
+      <td>-3.22</td>
+      <td>-3.37</td>
+      <td>3.38</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-australian-bond-fund-BOND.html" target="_blank">SPDR S&amp;P/ASX Australian Bond Fund</a></td>
+      <td>BOND</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P/ASX Australian Fixed Interest Index</td>
+      <td>Track</td>
+      <td>0.2400</td>
+      <td>No</td>
+      <td>2012-07-27</td>
+      <td>-3.53</td>
+      <td>-3.82</td>
+      <td>3.28</td>
+    </tr>
+    <tr>
+      <th>186</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.betashares.com.au/fund/australian-investment-grade-corporate-bond-etf/" target="_blank">BetaShares Australian Investment Grade Bond ETF</a></td>
+      <td>CRED</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Australian Investment Grade Corporate Bond Index</td>
+      <td>Track</td>
+      <td>0.2500</td>
+      <td>No</td>
+      <td>2018-04-06</td>
+      <td>-3.51</td>
+      <td>-3.39</td>
+      <td>5.57</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vaneck.com.au/etf/income/flot/snapshot/" target="_blank" title="flot">VanEck Australian Floating Rate ETF</a></td>
+      <td>FLOT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Credit FRN 0+ Yr Index</td>
+      <td>Track</td>
+      <td>0.2200</td>
+      <td>No</td>
+      <td>2017-07-07</td>
+      <td>0.09</td>
+      <td>0.05</td>
+      <td>1.51</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.spdrs.com.au/etf/fund/spdr-sp-asx-australian-government-bond-fund-GOVT.html" target="_blank">SPDR S&amp;P/ASX Australian Government Bond Fund</a></td>
+      <td>GOVT</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P/ASX Government Bond Index</td>
+      <td>Track</td>
+      <td>0.2200</td>
+      <td>No</td>
+      <td>2012-07-27</td>
+      <td>-3.64</td>
+      <td>-3.95</td>
+      <td>3.37</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.betashares.com.au/fund/active-australian-hybrids-fund/" target="_blank">BetaShares Active Australian Hybrids Fund</a></td>
+      <td>HBRD</td>
+      <td>MF</td>
+      <td>Yes, IRESS: HBRDINAV.ETF</td>
+      <td>Solactive Australian Hybrid Securities Index</td>
+      <td>Outperform</td>
+      <td>0.5500</td>
+      <td>Yes</td>
+      <td>2017-11-17</td>
+      <td>2.97</td>
+      <td>4.10</td>
+      <td>4.18</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/251977/ishares-core-composite-bond-etf" target="_blank">iShares Core Composite Bond ETF</a></td>
+      <td>IAF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Composite Bond Index</td>
+      <td>Track</td>
+      <td>0.1500</td>
+      <td>No</td>
+      <td>2012-03-14</td>
+      <td>-3.14</td>
+      <td>-3.41</td>
+      <td>3.17</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www2.asx.com.au/markets/company/icor" target="_blank">iShares Core Corporate Bond ETF</a></td>
+      <td>ICOR</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Credit 0+ Yr Index</td>
+      <td>Track</td>
+      <td>0.1500</td>
+      <td>No</td>
+      <td>2020-05-29</td>
+      <td>-2.60</td>
+      <td>-2.60</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/251979/ishares-treasury-etf" target="_blank">iShares Treasury ETF</a></td>
+      <td>IGB</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Treasury Index</td>
+      <td>Track</td>
+      <td>0.1800</td>
+      <td>No</td>
+      <td>2012-03-14</td>
+      <td>-3.27</td>
+      <td>-3.60</td>
+      <td>3.29</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/251978/ishares-government-inflation-etf" target="_blank">iShares Government Inflation ETF</a></td>
+      <td>ILB</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Inflation Government 0+ Yr Index</td>
+      <td>Track</td>
+      <td>0.1800</td>
+      <td>No</td>
+      <td>2012-03-14</td>
+      <td>-1.22</td>
+      <td>-0.05</td>
+      <td>4.96</td>
+    </tr>
+    <tr>
+      <th>194</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www2.asx.com.au/markets/etp/iyld" target="_blank">iShares Yield Plus ETF</a></td>
+      <td>IYLD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg AusBond Credit and FRN Ex Big 4 Banks Index</td>
+      <td>Track</td>
+      <td>0.1200</td>
+      <td>No</td>
+      <td>2020-05-29</td>
+      <td>0.43</td>
+      <td>1.40</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vaneck.com.au/funds/plus/Snapshot/" target="_blank">VanEck Australian Corporate Bond Plus ETF</a></td>
+      <td>PLUS</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Markit iBoxx AUD Corporates Yield Plus Index</td>
+      <td>Track</td>
+      <td>0.3200</td>
+      <td>No</td>
+      <td>2017-11-05</td>
+      <td>-2.56</td>
+      <td>-2.42</td>
+      <td>4.20</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.betashares.com.au/fund/australian-bank-floating-rate-bond-etf/" target="_blank">BetaShares Australian Bank Senior Floating Rate Bond ETF</a></td>
+      <td>QPON</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Australian Bank Senior Floating Rate Bond Index</td>
+      <td>Track</td>
+      <td>0.2200</td>
+      <td>No</td>
+      <td>2017-06-06</td>
+      <td>-0.29</td>
+      <td>-0.39</td>
+      <td>1.94</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td>None</td>
+      <td>RCB</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Deutsche Bank DBIQ 0-4 Year\nAustralian Corporate Bond Index</td>
+      <td>Track</td>
+      <td>0.2800</td>
+      <td>No</td>
+      <td>2012-03-13</td>
+      <td>-1.90</td>
+      <td>-1.99</td>
+      <td>3.41</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td>None</td>
+      <td>RGB</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Deutsche Bank DBIQ 5-10\nYear Australian Government Bond Index</td>
+      <td>Track</td>
+      <td>0.2400</td>
+      <td>No</td>
+      <td>2012-03-13</td>
+      <td>-3.55</td>
+      <td>-3.93</td>
+      <td>3.98</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td>None</td>
+      <td>RSM</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Deutsche Bank DBIQ 0-5 year Australian Semi Government Bond Index</td>
+      <td>Track</td>
+      <td>0.2600</td>
+      <td>No</td>
+      <td>2012-03-13</td>
+      <td>-2.65</td>
+      <td>-2.65</td>
+      <td>2.77</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vaneck.com.au/funds/subd/snapshot/" target="_blank">VanEck Australian Subordinated Debt ETF</a></td>
+      <td>SUBD</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>iBoxx AUD Investment Grade Subordinated Debt Index</td>
+      <td>Track</td>
+      <td>0.2900</td>
+      <td>No</td>
+      <td>2019-10-30</td>
+      <td>1.72</td>
+      <td>2.20</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8203/Overview" target="_blank">Vanguard Australian Corporate Fixed Interest Index ETF</a></td>
+      <td>VACF</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Bloomberg AusBond Credit 0+ Yr Index</td>
+      <td>Track</td>
+      <td>0.2600</td>
+      <td>No</td>
+      <td>2016-05-25</td>
+      <td>-2.05</td>
+      <td>-1.98</td>
+      <td>3.41</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vanguardinvestments.com.au/retail/ret/investments/etfs.jsp" target="_blank">Vanguard Australian Fixed Interest Index ETF</a></td>
+      <td>VAF</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Bloomberg AusBond Composite Index</td>
+      <td>Track</td>
+      <td>0.2000</td>
+      <td>No</td>
+      <td>2012-10-31</td>
+      <td>-3.14</td>
+      <td>-3.39</td>
+      <td>3.16</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8208/Overview" target="_blank">Vanguard Australian Government Bond Index ETF</a></td>
+      <td>VGB</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>Bloomberg AusBond Govt 0+\nYr Index</td>
+      <td>Track</td>
+      <td>0.2000</td>
+      <td>No</td>
+      <td>2012-04-30</td>
+      <td>-3.35</td>
+      <td>-3.64</td>
+      <td>3.29</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>FixedIncome-AustralianDollar</td>
+      <td><a href="https://etfs.fidanteactivex.com.au/xaro/ardea/" target="_blank">ActiveX Ardea Real Outcome Bond Fund (Managed Fund)</a></td>
+      <td>XARO</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>RBA Inflation rate (Consumer Price Index)</td>
+      <td>Outperform</td>
+      <td>0.5000</td>
+      <td>No</td>
+      <td>2018-10-12</td>
+      <td>-1.03</td>
+      <td>-1.15</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>205</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.vaneck.com.au/blog/news/global-income-opportunity/" target="_blank" title="Follow link">VanEck Bentahm Global Capital Securities Active ETF (Managed Fund) (ASX: GCAP)</a></td>
+      <td>GCAP</td>
+      <td>MF</td>
+      <td>No</td>
+      <td>RBA Cash Rate + 3% p.a.</td>
+      <td>Outperform</td>
+      <td>0.5900</td>
+      <td>Yes</td>
+      <td>2021-05-08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.vaneck.com.au/etf/income/ebnd/portfolio-analytics/" target="_blank">VanEck Emerging Income Opportunities Active ETF (Managed Fund)</a></td>
+      <td>EBND</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>50% J.P. Morgan Emerging Market Bond Index Global Diversified Hedged AUD and 50% J.P. Morgan Government Bond-Emerging Market Index Global Diversified.</td>
+      <td>Track</td>
+      <td>0.9500</td>
+      <td>No</td>
+      <td>2020-02-13</td>
+      <td>-1.09</td>
+      <td>-0.71</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.betashares.com.au/fund/sustainability-leaders-diversified-bond-etf-currency-hedged/" target="_blank">BetaShares Sustainability Leaders Diversified Bond ETF - Currency Hedged</a></td>
+      <td>GBND</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Solactive Australian and Global Select Sustainability Leaders Bond TR Index - AUD Hedged</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2019-11-28</td>
+      <td>-4.48</td>
+      <td>-4.34</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.betashares.com.au/fund/betashares-global-government-bond-20-year-etf-currency-hedged/" target="_blank">BetaShares Global Government Bond 20+ Year ETF</a></td>
+      <td>GGOV</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P G7 Sovereign Duration-Capped 20+ Year AUD Hedged Bond Index</td>
+      <td>Track</td>
+      <td>0.2200</td>
+      <td>No</td>
+      <td>2020-11-05</td>
+      <td>-5.21</td>
+      <td>-4.62</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/275246/ishares-core-global-corporate-bond-aud-hedged-etf-fund" target="_blank">iShares Core Global Corporate Bond (AUD Hedged) ETF</a></td>
+      <td>IHCB</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg Barclays Global Aggregate Corporate\nBond Index (AUD hedged)</td>
+      <td>Track</td>
+      <td>0.2600</td>
+      <td>No</td>
+      <td>2015-09-12</td>
+      <td>-1.30</td>
+      <td>-0.89</td>
+      <td>5.33</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/275254/ishares-j-p-morgan-usd-emerging-markets-bond-aud-hedged-e-fund" target="_blank">iShares J.P.Morgan USD Emerging Markets Bond (AUD Hedged) ETF</a></td>
+      <td>IHEB</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>J.P. Morgan EMBI Global Core Hedged Index (AUD hedged)</td>
+      <td>Track</td>
+      <td>0.5100</td>
+      <td>No</td>
+      <td>2015-09-12</td>
+      <td>-4.90</td>
+      <td>-2.76</td>
+      <td>4.87</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/275248/ishares-global-high-yield-bond-aud-hedged-etf" target="_blank">iShares Global High Yield Bond (AUD Hedged) ETF</a></td>
+      <td>IHHY</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Markit iBoxx Global\nDeveloped Markets Liquid High Yield Capped Index (AUD hedged)</td>
+      <td>Track</td>
+      <td>0.5600</td>
+      <td>No</td>
+      <td>2015-09-12</td>
+      <td>1.04</td>
+      <td>3.30</td>
+      <td>3.97</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8200/Overview" target="_blank">Vanguard Global Aggregate Bond Index (Hedged) ETF</a></td>
+      <td>VBND</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg Barclays Global Aggregate Float Adjusted Total Return Index\n(AUD hedged)</td>
+      <td>Track</td>
+      <td>0.2000</td>
+      <td>No</td>
+      <td>2017-12-10</td>
+      <td>-1.55</td>
+      <td>-1.35</td>
+      <td>4.15</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8217/Overview" target="_blank">Vanguard International Credit Securities Index (Hedged) ETF</a></td>
+      <td>VCF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg Barclays Global Aggregate Corp/Gov-related TR Index (AUD Hedged)</td>
+      <td>Track</td>
+      <td>0.3000</td>
+      <td>No</td>
+      <td>2015-08-12</td>
+      <td>-1.39</td>
+      <td>-1.03</td>
+      <td>4.99</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8224/Overview" target="_blank">Vanguard Ethically Conscious Global Aggregate Bond Index (Hedged) ETF</a></td>
+      <td>VEFI</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg Barclays MSCI Global Aggregate SRI Exclusions Float Adjusted Index</td>
+      <td>Track</td>
+      <td>0.2600</td>
+      <td>No</td>
+      <td>2018-09-13</td>
+      <td>-1.63</td>
+      <td>-1.46</td>
+      <td>3.98</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>FixedIncome-Global</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8216/Overview" target="_blank">Vanguard International Fixed Interest Index (Hedged) ETF</a></td>
+      <td>VIF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Bloomberg Barclays Global Treasury Total Return Index hedged to AUD</td>
+      <td>Track</td>
+      <td>0.2000</td>
+      <td>No</td>
+      <td>2015-08-12</td>
+      <td>0.00</td>
+      <td>-1.49</td>
+      <td>3.57</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>Cash</td>
+      <td><a href="https://www.betashares.com.au/fund/high-interest-cash-etf/" target="_blank">BetaShares Australian High Interest Cash ETF</a></td>
+      <td>AAA</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>30 Day Bank Bill Swap Rate</td>
+      <td>Track</td>
+      <td>0.1800</td>
+      <td>No</td>
+      <td>2012-07-03</td>
+      <td>0.31</td>
+      <td>0.35</td>
+      <td>0.97</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>Cash</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/287045/ishares-core-cash-etf-fund" target="_blank">iShares Core Cash ETF</a></td>
+      <td>BILL</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P/ASX Bank Bill Index</td>
+      <td>Track</td>
+      <td>0.0700</td>
+      <td>No</td>
+      <td>2017-06-06</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.68</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>Cash</td>
+      <td><a href="https://www.blackrock.com/au/individual/products/287042/ishares-enhanced-cash-etf-fund" target="_blank">iShares Enhanced Cash ETF</a></td>
+      <td>ISEC</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>S&P/ASX Bank Bill Index</td>
+      <td>Track</td>
+      <td>0.1200</td>
+      <td>No</td>
+      <td>2017-06-06</td>
+      <td>0.07</td>
+      <td>0.08</td>
+      <td>0.85</td>
+    </tr>
+    <tr>
+      <th>219</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.betashares.com.au/fund/ethical-diversified-balanced-etf/" target="_blank">BetaShares Ethical Diversified Balanced ETF</a></td>
+      <td>DBBF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.3900</td>
+      <td>No</td>
+      <td>2019-11-12</td>
+      <td>6.93</td>
+      <td>12.22</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.betashares.com.au/fund/ethical-diversified-growth-etf/" target="_blank">BetaShares Ethical Diversified Growth ETF</a></td>
+      <td>DGGF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.3900</td>
+      <td>No</td>
+      <td>2019-09-12</td>
+      <td>11.65</td>
+      <td>19.48</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.betashares.com.au/fund/diversified-all-growth-etf/" target="_blank">BetaShares Diversified All Growth ETF</a></td>
+      <td>DHHF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.1900</td>
+      <td>No</td>
+      <td>2019-05-12</td>
+      <td>18.21</td>
+      <td>27.94</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.betashares.com.au/fund/ethical-diversified-high-growth-etf/" target="_blank">BetaShares Ethical Diversified High Growth ETF</a></td>
+      <td>DZZF</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Benchmark Unaware</td>
+      <td>Benchmark Unaware</td>
+      <td>0.3900</td>
+      <td>No</td>
+      <td>2019-12-12</td>
+      <td>16.55</td>
+      <td>20.09</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.schroders.com/en/au/individuals/funds/grow/" target="_blank">Schroder Real Return Fund (Managed Fund)</a></td>
+      <td>GROW</td>
+      <td>MF</td>
+      <td>Yes, IRESS: GROWINAV.ETF</td>
+      <td>5.0% above Australian inflation over rolling 3\nyear periods</td>
+      <td>Outperform</td>
+      <td>0.8300</td>
+      <td>No</td>
+      <td>2016-08-16</td>
+      <td>4.44</td>
+      <td>4.80</td>
+      <td>5.58</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8218/Overview" target="_blank">Vanguard Diversified Balanced Index ETF</a></td>
+      <td>VDBA</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Balanced Composite Index</td>
+      <td>Track</td>
+      <td>0.2700</td>
+      <td>No</td>
+      <td>2017-11-22</td>
+      <td>7.94</td>
+      <td>8.69</td>
+      <td>9.45</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8219/Overview" target="_blank">Vanguard Diversified Conservative Index ETF</a></td>
+      <td>VDCO</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Conservative Composite Index\n- ETF</td>
+      <td>Track</td>
+      <td>0.2700</td>
+      <td>No</td>
+      <td>2017-11-22</td>
+      <td>4.00</td>
+      <td>4.45</td>
+      <td>6.93</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8220/Overview" target="_blank">Vanguard Diversified Growth Index ETF</a></td>
+      <td>VDGR</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>Growth Composite Index\n- ETF</td>
+      <td>Track</td>
+      <td>0.2700</td>
+      <td>No</td>
+      <td>2017-11-22</td>
+      <td>12.22</td>
+      <td>13.26</td>
+      <td>11.69</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>MixedAsset</td>
+      <td><a href="https://www.vanguard.com.au/personal/products/en/detail/8221/Overview" target="_blank">Vanguard Diversified High Growth Index ETF</a></td>
+      <td>VDHG</td>
+      <td>ETF</td>
+      <td>No</td>
+      <td>High Growth Composite Index\n- ETF</td>
+      <td>Track</td>
+      <td>0.2700</td>
+      <td>No</td>
+      <td>2017-11-22</td>
+      <td>16.65</td>
+      <td>18.02</td>
+      <td>13.93</td>
+    </tr>
+    <tr>
+      <th>228</th>
+      <td>Commodity</td>
+      <td><a href="https://www.etfsecurities.com.au/product/etpmag" target="_blank">ETFS Physical Silver </a></td>
+      <td>ETPMAG</td>
+      <td>SP</td>
+      <td>No</td>
+      <td>LBMA Silver Price - Price/US Cents</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2009-01-30</td>
+      <td>-6.88</td>
+      <td>6.75</td>
+      <td>17.69</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>Commodity</td>
+      <td><a href="https://www.etfsecurities.com.au/product/etpmpd" target="_blank">ETFS Physical Palladium</a></td>
+      <td>ETPMPD</td>
+      <td>SP</td>
+      <td>No</td>
+      <td>London Metal Exchange Palladium PM Fix Price/USD</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2009-01-30</td>
+      <td>-19.58</td>
+      <td>-23.86</td>
+      <td>14.17</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>Commodity</td>
+      <td><a href="https://www.etfsecurities.com.au/product/etpmpm" target="_blank">ETFS Precious Metals Basket</a></td>
+      <td>ETPMPM</td>
+      <td>SP</td>
+      <td>No</td>
+      <td>LBMA Gold Price PM, LBMA Silver Pirce, LME Palladium PM, LME Platinum PM</td>
+      <td>Track</td>
+      <td>0.4400</td>
+      <td>No</td>
+      <td>2009-01-30</td>
+      <td>-5.85</td>
+      <td>-3.49</td>
+      <td>14.43</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>Commodity</td>
+      <td><a href="https://www.etfsecurities.com.au/product/etpmpt" target="_blank">ETFS Physical Platinum</a></td>
+      <td>ETPMPT</td>
+      <td>SP</td>
+      <td>No</td>
+      <td>London Metal Exchange Platinum PM Fix USD</td>
+      <td>Track</td>
+      <td>0.4900</td>
+      <td>No</td>
+      <td>2009-01-30</td>
+      <td>-5.28</td>
+      <td>-0.29</td>
+      <td>5.97</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>Commodity</td>
+      <td><a href="https://www.etfsecurities.com.au/product/gold" target="_blank">ETFS Physical Gold</a></td>
+      <td>GOLD</td>
+      <td>SP</td>
+      <td>Yes</td>
+      <td>LBMA Gold Price PM USD</td>
+      <td>Track</td>
+      <td>0.4000</td>
+      <td>No</td>
+      <td>2003-03-28</td>
+      <td>3.00</td>
+      <td>5.96</td>
+      <td>14.68</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>Commodity</td>
+      <td><a href="https://www.betashares.com.au/fund/oil-etf-betashares/" target="_blank">BetaShares Crude Oil Index ETF-Currency Hedged (Synthetic)</a></td>
+      <td>OOO</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>S&P GSCI Crude Oil Official Close Index ER</td>
+      <td>Track</td>
+      <td>1.2900</td>
+      <td>No</td>
+      <td>2011-11-16</td>
+      <td>38.97</td>
+      <td>47.78</td>
+      <td>-21.20</td>
+    </tr>
+    <tr>
+      <th>234</th>
+      <td>Commodity</td>
+      <td><a href="https://www.perthmint.com/storage/perth-mint-gold-asx.html" target="_blank">Perth Mint Gold</a></td>
+      <td>PMGOLD</td>
+      <td>SP</td>
+      <td>No</td>
+      <td>Spot Gold Price</td>
+      <td>Track</td>
+      <td>0.1500</td>
+      <td>No</td>
+      <td>2010-12-29</td>
+      <td>-3.30</td>
+      <td>-10.74</td>
+      <td>11.42</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>Commodity</td>
+      <td><a href="https://www.betashares.com.au/fund/gold-etf-currency-hedged/" target="_blank">BetaShares Gold Bullion ETF (AU$ Hedged)</a></td>
+      <td>QAU</td>
+      <td>ETF</td>
+      <td>Yes</td>
+      <td>LBMA Gold Price AM USD</td>
+      <td>Track</td>
+      <td>0.5900</td>
+      <td>No</td>
+      <td>2011-04-05</td>
+      <td>-6.13</td>
+      <td>-0.04</td>
+      <td>11.42</td>
+    </tr>
+  </tbody>
+</table>

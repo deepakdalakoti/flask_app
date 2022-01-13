@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block body %}
+
+<link rel='stylesheet' href='https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css'>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+<form action="{{ url_for('logout') }}" method="POST">
+    <input id="historicalId" name="historicalId" type="hidden" >
+    <button type="submit"> Logout </button> </td>
+</form>	
+<form action="{{ url_for('my_etfs') }}" method="GET">
+    <button type="submit"> My Etfs </button> </td>
+</form>	
+
+
+<table border="1" class="dataframe" id="sampleTable">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    <tr>
+	    <th>{{row[0]}}</th>
+
+	    <td>{{row[1] | safe}}</td>
+            <td> <form action="{{ url_for('remove_fav', etf_id=row[0]) }}" method="POST">
+    <input id="historicalId" name="historicalId" type="hidden" >
+    <button type="submit"> Remove </button> </td>
+</form>	
+	    <!-- <td><a href="https://www.betashares.com.au/fund/australia-200-etf/" target="_blank">BetaShares Australia 200 ETF</a></td> -->
+    </tr>
+    {% endfor %}
+
+
+{% endblock %}
